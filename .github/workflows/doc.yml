@@ -1,0 +1,21 @@
+name: doc
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  linter_and_test:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: deploy
+        if: github.ref == 'refs/heads/master'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: doc/
