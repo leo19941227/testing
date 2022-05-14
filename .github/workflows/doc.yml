@@ -3,10 +3,10 @@ name: doc
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   linter_and_test:
